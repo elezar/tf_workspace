@@ -10,6 +10,9 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install dumb-init
+RUN pip install -U dumb-init
+
 # Add a user with the specified id and group id
 ARG user_name="developer"
 ARG user_id
@@ -25,5 +28,9 @@ RUN adduser --gecos "Developer" --quiet \
 	--disabled-password --force-badname  --shell /bin/zsh \
 	$user_name
 
+# Use dumb-init as a basic init system.
+ENTRYPOINT ["/usr/local/bin/dumb-init"]
+
 # Start the shell command by default.
-CMD /bin/zsh
+CMD ["/bin/zsh"]
+
