@@ -44,5 +44,5 @@ $DOCKER_EXE run --rm -ti \
 			-v $(pwd)/.home/$USERNAME:/home/$USERNAME \
 			-p 8888:8888 \
 			-p 6006:6006 \
-			$DOCKER_IMAGE
+			$DOCKER_IMAGE $*
 fi
