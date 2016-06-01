@@ -1,8 +1,9 @@
-FROM gcr.io/tensorflow/tensorflow
+FROM gcr.io/tensorflow/tensorflow:latest-gpu
 MAINTAINER evan.lezar@zalando.de
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        libcudnn4-dev \
         tree \
         wget \
         zsh \
