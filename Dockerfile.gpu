@@ -3,6 +3,7 @@ MAINTAINER evan.lezar@zalando.de
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        git \
         libcudnn4-dev \
         tree \
         wget \
